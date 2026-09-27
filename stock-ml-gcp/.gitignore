@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Data / models / reports (generated artifacts, not source)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.pkl
+*.joblib
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Env / secrets
+.env
+*.json
+!configs/*.json
+gcloud-key*.json
+
+# OS
+.DS_Store
