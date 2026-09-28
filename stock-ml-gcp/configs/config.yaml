@@ -47,13 +47,21 @@ features:
 
 split:
   method: "walk_forward"         # never random shuffle
-  train_end: null                # set in Chat 6
-  val_end: null                  # set in Chat 6
+  train_fraction: 0.60
+  validation_fraction: 0.20
 
 models:
   baseline: "logistic_regression"
   main: "random_forest"
+  random_seed: 42
+  random_forest:
+    n_estimators: 300
+    min_samples_leaf: 5
 
 decision_engine:
   # Rule-based, separate from model code (Chat 9)
-  confidence_threshold: null
+  confidence_threshold: 0.45
+
+backtest:
+  starting_capital: 10000.0
+  transaction_cost: 0.001
