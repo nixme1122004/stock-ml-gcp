@@ -23,6 +23,8 @@ target:
 
 features:
   # Must stay stock-agnostic: normalized/relative, not raw price levels.
+  rsi_period: 14
+  volume_lookback: 20
   list:
     - close
     - volume
@@ -31,6 +33,15 @@ features:
     - sma_50
     - ema_12
     - ema_26
+    - volatility_20d
+    - rsi
+  model_columns:
+    - close_to_sma_20
+    - close_to_sma_50
+    - volume_relative_20
+    - daily_return
+    - sma_20_to_sma_50
+    - ema_12_to_ema_26
     - volatility_20d
     - rsi
 

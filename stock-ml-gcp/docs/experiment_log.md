@@ -31,4 +31,15 @@ Keep entries short — this is a build trail, not a report.
 **Important decisions:** Missing or invalid rows are dropped rather than forward-filled; duplicate timestamps retain the last provider observation; market holidays remain absent.
 **Known limitations:** Tests cannot run until the local Python launcher is repaired. No features or targets were created.
 **Next:** Causal feature engineering using the locked indicator set.
+
+---
+
+## Chat 4 - Causal feature engineering
+**Date:** 2026-09-28
+**Stage:** Feature engineering.
+**Built:** Stock-agnostic trailing indicators, normalized model features, feature metadata, and leakage-focused tests.
+**Files changed:** `configs/config.yaml`, `src/features/engineering.py`, `tests/test_feature_engineering.py`, `docs/feature_engineering.md`, `docs/experiment_log.md`.
+**Important decisions:** Predictions are defined as post-close on date t, so features include date-t close/volume but never future rows; raw price/volume are retained for inspection while the model uses relative forms.
+**Known limitations:** Feature files cannot be generated until the local Python runtime is repaired. Labels and train/test eligibility are deliberately deferred.
+**Next:** Configurable future-return target construction.
 **Next:** Chat 2 — ingestion script for AAPL/MSFT OHLCV to a raw data layer.
