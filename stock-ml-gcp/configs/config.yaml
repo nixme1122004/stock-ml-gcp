@@ -10,6 +10,11 @@ data:
   raw_layer: "data/raw"          # local path for now; GCS is a later, optional deployment decision
   processed_layer: "data/processed"
 
+cleaning:
+  required_columns: ["Open", "High", "Low", "Close", "Volume"]
+  # Invalid or incomplete OHLCV rows are removed; no forward-fill is applied.
+  drop_invalid_rows: true
+
 target:
   # Direction label derived from forward return, not raw price.
   horizon_days: 1                # predict next N trading days' direction (finalize in Chat 5/6)
