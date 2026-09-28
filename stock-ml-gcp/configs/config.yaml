@@ -3,7 +3,11 @@
 
 data:
   tickers: ["AAPL", "MSFT"]
-  raw_layer: "data/raw"          # local path for now; GCS path swapped in at deployment chat
+  source: "yfinance"              # downloaded OHLCV source, recorded beside every raw snapshot
+  start_date: "2018-01-01"        # enough history for 50-day indicators and time-aware splits
+  end_date: null                   # null means the provider's most recently available trading day
+  auto_adjust: false               # retain provider OHLCV values; cleaning/feature stages decide adjustments
+  raw_layer: "data/raw"          # local path for now; GCS is a later, optional deployment decision
   processed_layer: "data/processed"
 
 target:
