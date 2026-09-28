@@ -42,4 +42,15 @@ Keep entries short — this is a build trail, not a report.
 **Important decisions:** Predictions are defined as post-close on date t, so features include date-t close/volume but never future rows; raw price/volume are retained for inspection while the model uses relative forms.
 **Known limitations:** Feature files cannot be generated until the local Python runtime is repaired. Labels and train/test eligibility are deliberately deferred.
 **Next:** Configurable future-return target construction.
+
+---
+
+## Chat 5 - Future-return labels
+**Date:** 2026-09-28
+**Stage:** Target construction.
+**Built:** Five-trading-day future-return target and BUY/HOLD/SELL labels with inclusive +/-2% thresholds.
+**Files changed:** `configs/config.yaml`, `src/features/target.py`, `tests/test_target.py`, `docs/target_definition.md`, `docs/experiment_log.md`.
+**Results:** Downloaded, cleaned, engineered, and labelled current AAPL/MSFT snapshots locally.
+**Important decisions:** Target rows with unavailable future prices remain missing and cannot enter model fitting.
+**Next:** Chronological split, baseline model, and Random Forest evaluation.
 **Next:** Chat 2 — ingestion script for AAPL/MSFT OHLCV to a raw data layer.
